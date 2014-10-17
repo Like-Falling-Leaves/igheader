@@ -54,7 +54,7 @@
     if (window.Hammer) {
       var mc = new Hammer($(elt)[0], {pan: true, drag: true});
       var delta = 0;
-      mc.on('panup pandown dragup dragdown panend dragend', function (ev) {
+      mc.on('panup pandown dragup dragdown', function (ev) {
         var deltaY = ('deltaY' in ev) ? ev.deltaY : (ev.gesture && ev.gesture.deltaY || 0);
         $(elt).scrollTop($(elt).scrollTop() - deltaY + delta);
         delta = deltaY;
