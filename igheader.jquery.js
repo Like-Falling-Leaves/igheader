@@ -51,15 +51,18 @@
     
     updateHeaders(); updateBarInfo();
     $(window).on('scroll', updateBarInfo);
+    $(document).on('touchmove', false);
     if (window.Hammer) {
       var mc = new Hammer($(elt)[0], {pan: true, drag: true});
       var delta = 0;
-      mc.on('panup pandown dragup dragdown panend dragend', function (ev) {
+      if (Hammer.DIRECTION_VERTICAL && mc.get) mc.get('pan').set({direction: Hammer.DIRECTION_VERTICAL});
+      mc.on('panup pandown dragup dragdown', function (ev) {
         var deltaY = ('deltaY' in ev) ? ev.deltaY : (ev.gesture && ev.gesture.deltaY || 0);
         $(elt).scrollTop($(elt).scrollTop() - deltaY + delta);
         delta = deltaY;
         updateBarInfo();
-      }).on('panend dragend', function () { delta = 0; });
+      }).on('panend dragend', function () { delta = 0; })
+        .on('panstart dragstart', function () { delta = 0; });
     }
     return $(elt).on('igheader-update.igheader', function () { updateHeaders(); updateBarInfo(); })
       .on('igheader-scroll.igheader', updateBarInfo)

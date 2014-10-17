@@ -47,4 +47,4 @@ MOBILE DEVICES
 
 This plugin obviously works on mobile devices but it requires [HammerJS](https://hammerjs.github.io/) to work well as mobile devices do not provide the right scroll events.  Take a look at the demo HTML to figure out how to include the required HammerJS code.
 
-This has not been tested with HammerJS v2.0 though it should be trivial to fix it if there are any issues.  Please report them or send patches.
+Note that while the code should work with HammerJS v1, it works much smoother on mobile devices with HammerJS v2.0.
