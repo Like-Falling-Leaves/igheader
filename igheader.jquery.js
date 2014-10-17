@@ -60,7 +60,8 @@
         $(elt).scrollTop($(elt).scrollTop() - deltaY + delta);
         delta = deltaY;
         updateBarInfo();
-      }).on('panend dragend', function () { delta = 0; });
+      }).on('panend dragend', function () { delta = 0; $('body').css({background: 'white'}); })
+        .on('panstart dragstart', function () { delta = 0; $('body').css({background: 'lightgray'}); });
     }
     return $(elt).on('igheader-update.igheader', function () { updateHeaders(); updateBarInfo(); })
       .on('igheader-scroll.igheader', updateBarInfo)
