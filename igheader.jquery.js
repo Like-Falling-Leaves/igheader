@@ -51,6 +51,7 @@
     
     updateHeaders(); updateBarInfo();
     $(window).on('scroll', updateBarInfo);
+    $(document).on('touchmove', false);
     if (window.Hammer) {
       var mc = new Hammer($(elt)[0], {pan: true, drag: true});
       var delta = 0;
