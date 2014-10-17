@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Igheader by Like-Falling-Leaves</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Igheader</h1>
+          <h2>A simple sticky section header that has scroll behavior like in instagram</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/Like-Falling-Leaves/igheader/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/Like-Falling-Leaves/igheader/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/Like-Falling-Leaves/igheader" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>
+<a name="igheader" class="anchor" href="#igheader"><span class="octicon octicon-link"></span></a>igheader</h1>
+
+<p>This is a very small jquery plugin for a top bar which behaves like the top bar on Instagram with respect to scrolling. It basically allows for sticky section headers.</p>
+
+<h1>
+<a name="api" class="anchor" href="#api"><span class="octicon octicon-link"></span></a>API</h1>
+
+<p>The usage is very simple.  Add this to your HTML:</p>
+
+<div class="highlight highlight-html"><pre>   <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"http://like-falling-leaves.github.io/igheader/igheader.jquery.js"</span><span class="nt">&gt;</span><span class="err">&lt;script&gt;</span>
+</pre></div>
+
+<p>and then invoke it like so:</p>
+
+<div class="highlight highlight-javascript"><pre>  <span class="nx">$</span><span class="p">(</span><span class="s1">'div.myroot'</span><span class="p">).</span><span class="nx">igheader</span><span class="p">();</span>
+</pre></div>
+
+<p>There are no options, no default styles.  Any entries with class <em>header</em> that are children of the root element provided are considered valid headers and are cloned and copied over to the fixed bar area.</p>
+
+<p>Styles for the fixed bar area can be provided by using the selector <em>div.bar .header</em> for example.  The plugin is automatically invoked on <em>.igheader</em> elements.</p>
+
+<p>The plugin listens for <em>scroll.igheader</em> jQuery events on the whole window.  If this is not the right place to listen for it, you can fix it by doing the following:</p>
+
+<div class="highlight highlight-javascript"><pre>
+  <span class="nx">$</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+     <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">off</span><span class="p">(</span><span class="s1">'scroll.igheader'</span><span class="p">);</span> <span class="c1">// disable scroll events</span>
+     <span class="nx">$</span><span class="p">(</span><span class="nx">some_element</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'scroll'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s1">'div.myroot'</span><span class="p">).</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">'igheader-update'</span><span class="p">);</span>
+     <span class="p">});</span>
+  <span class="p">});</span>
+
+</pre></div>
+
+<h1>
+<a name="demo" class="anchor" href="#demo"><span class="octicon octicon-link"></span></a>DEMO</h1>
+
+<p>Nothing is better than a live demo.  Click <a href="http://like-falling-leaves.github.io/igheader/example.html">here</a> to see a demo.  If you are using Chrome on your desktop, emulate some devices and check it out.</p>
+
+<p>Take a look at the styles in the HTML head of the demo to figure out how to style the header for your usecase.</p>
+
+<h1>
+<a name="mobile-devices" class="anchor" href="#mobile-devices"><span class="octicon octicon-link"></span></a>MOBILE DEVICES</h1>
+
+<p>This plugin obviously works on mobile devices but it requires <a href="https://hammerjs.github.io/">HammerJS</a> to work well as mobile devices do not provide the right scroll events.  Take a look at the demo HTML to figure out how to include the required HammerJS code.</p>
+
+<p>This has not been tested with HammerJS v2.0 though it should be trivial to fix it if there are any issues.  Please report them or send patches.</p>
+        </section>
+
+        <footer>
+          Igheader is maintained by <a href="https://github.com/Like-Falling-Leaves">Like-Falling-Leaves</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
